@@ -57,16 +57,18 @@ public class PlayerController : MonoBehaviour
             fadeInAndOut.DoFade(2);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            hasSpring = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    hasRedKey = true;
+        //    hasSpring = true;
+        //}
 
-        if (player.velocity.y != 0)
-        {
-            grounded = false;
-        }
-
+        //if (player.velocity.y != 0)
+        //{
+        //    Debug.Log("player.velocity.y: " + player.velocity.y);
+        //    grounded = false;
+        //}
+            
         anim.SetBool("isGrounded", grounded);
         anim.SetBool("isJumping", isJumping);
 
@@ -130,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Platform") && player.velocity.y == 0)
+        if (col.gameObject.CompareTag("Platform"))
         {
             grounded = true;
             isJumping = false;
